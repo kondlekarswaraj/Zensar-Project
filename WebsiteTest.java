@@ -38,7 +38,6 @@ public class WebsiteTest {
 //	        driver = new GeckoDriver();                                                               //Create instance of Mozilla Firefox 
 	        
 	     baseURL="https://www.practo.com/" ;                                                          //Write URL you want to Open
-//	        driver.manage().window().maximize();                                                      //Maximize window size
 	        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);                           //Set Timeout     
 	}
 
@@ -68,8 +67,8 @@ public class WebsiteTest {
 	@Test
 	public void test() throws Exception {
 		
-		driver.get(baseURL);
-		driver.manage().window().maximize();                                                          //Open baseURL
+		driver.get(baseURL);                                                                          //Open baseURL
+		driver.manage().window().maximize();                                                          //Maximize Window
 		
 		
 	//Login
@@ -135,7 +134,7 @@ public class WebsiteTest {
 	//Search Cities(Kolkata)
 		
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).clear();                    //Clear Location
-		Thread.sleep(2000);                                                                                             //Time sleep for 2 seconds(2000 milliseconds)
+		Thread.sleep(2000);                                                                                             
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).sendKeys("Kolkata");        //Search Location
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).sendKeys(Keys.ARROW_DOWN);  //Press down key one time
@@ -147,14 +146,25 @@ public class WebsiteTest {
 		
 	//Search Hospitals(Kolkata)
 		
+		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).clear();                     //Clear Hospital
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys("Hospital");        //Search Hospital
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys(Keys.ARROW_DOWN);   //Press down key another time
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys(Keys.ENTER);        //Press Enter Key
 		Thread.sleep(2000);
+	
 		
-	//Accredited Hospitals(Kolkata)
+	//Logout
+		
+//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
+//		Thread.sleep(2000);
+		
+		
+   //Accredited Hospitals(Kolkata)
 		
     	driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[1]/div/div[2]/label/span/span")).click();       //Click on Accredited
 		Thread.sleep(2000);
@@ -163,7 +173,7 @@ public class WebsiteTest {
 		
     	driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[1]/div/div[4]/span/span")).click();             //Click on All Filters
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[2]/div/div/div/label[3]/span/span")).click();   //Click on 24x7 Pharmacy
+     	driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[2]/div/div/div/label[3]/span/span")).click();   //Click on 24x7 Pharmacy
 		Thread.sleep(2000);	
 		
 		
@@ -193,6 +203,8 @@ public class WebsiteTest {
 				
 	//Search Hospitals(Hyderabad)
 				
+		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).clear();                     //Clear Hospital
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys("Hospital");        //Search Hospital
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys(Keys.ARROW_DOWN);   //Press down key another time
@@ -220,7 +232,13 @@ public class WebsiteTest {
 	    System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[4]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 3rd Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[5]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 4th Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[6]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 5th Hospital Name	
+	
+	//Logout
 		
+		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
+		Thread.sleep(2000);
    
    //Print Append Text
 	    
