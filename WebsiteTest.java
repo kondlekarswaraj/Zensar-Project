@@ -5,13 +5,12 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileInputStream;
-
+import java.io.FileWriter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,6 +42,22 @@ public class WebsiteTest {
 	        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);                           //Set Timeout     
 	}
 
+	//Write Text
+	     public static void writeText(String ModuleName, String Result, String Comment) throws Exception {
+		 FileWriter fw = new FileWriter("log.txt",true);
+		
+	     fw.write(ModuleName + Result + Comment);
+	     fw.close();
+	    }
+	
+	//Append Text
+	     public static void appendText(String ModuleName1, String Result1, String Comment1) throws Exception {
+		 FileWriter fw = new FileWriter("log.txt",true);
+		
+	     fw.write(ModuleName1 + Result1 + Comment1);
+	     fw.close();
+	    }
+	
 	
 	@After
 	public void tearDown() throws Exception {
@@ -64,9 +79,13 @@ public class WebsiteTest {
 		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("2525522552Spk");                                    //Write your Password
 	    driver.findElement(By.xpath("//*[@id='login']")).click();                                                         //Click to Login
 
+   //Print Write Text
 	    
-
-	    
+	    String ModuleName = "Module Name: Login\t";
+	    String Result = "Result: Passed\t";
+   	    String Comment = "Comment: User Logged in Successfully\n\n";
+	    writeText(ModuleName, Result, Comment);
+    
 	//Search Cities(Mumbai)
 	
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).clear();                    //Clear Location
@@ -93,11 +112,6 @@ public class WebsiteTest {
 	
     	driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[1]/div/div[2]/label/span/span")).click();       //Click on Accredited
 		Thread.sleep(2000);
-				
-	//24x7 Open Hospitals(Mumbai)
-	
-//		driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[1]/div/div[3]/label/span/span")).click();       //Click on Open 24x7 Hospitals
-//		Thread.sleep(2000);
 		
 	//24x7 Open Pharmacy(Mumbai)
 	
@@ -207,8 +221,13 @@ public class WebsiteTest {
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[5]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 4th Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[6]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 5th Hospital Name	
 		
-			
-	
+   
+   //Print Append Text
+	    
+	    String ModuleName1 = "Module Name: Logout\t";
+	    String Result1 = "Result: Passed\t";
+   	    String Comment1 = "Comment: User Logged out Successfully\n\n";
+	    appendText(ModuleName1, Result1, Comment1);
 
 		fail("Not yet implemented");
 	}
