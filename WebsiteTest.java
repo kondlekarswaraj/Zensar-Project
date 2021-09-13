@@ -1,6 +1,5 @@
 package PractoWebsite;
 
-
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -20,7 +19,6 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.WorkbookSettings;
 import jxl.read.biff.BiffException;
-
 
 public class WebsiteTest {
 
@@ -78,13 +76,15 @@ public class WebsiteTest {
 		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("2525522552Spk");                                    //Write your Password
 	    driver.findElement(By.xpath("//*[@id='login']")).click();                                                         //Click to Login
 
+	    
    //Print Write Text
 	    
 	    String ModuleName = "Module Name: Login\t";
 	    String Result = "Result: Passed\t";
    	    String Comment = "Comment: User Logged in Successfully\n\n";
 	    writeText(ModuleName, Result, Comment);
-    
+  
+	    
 	//Search Cities(Mumbai)
 	
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).clear();                    //Clear Location
@@ -127,8 +127,6 @@ public class WebsiteTest {
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[5]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 4th Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[6]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 5th Hospital Name
 		
-	
-
 
 		
 	//Search Cities(Kolkata)
@@ -155,13 +153,21 @@ public class WebsiteTest {
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[2]/div[1]/input")).sendKeys(Keys.ENTER);        //Press Enter Key
 		Thread.sleep(2000);
 	
-		
+	
+    //Print Append Text
+	    
+	    String ModuleName1 = "Module Name: Logout\t";
+	    String Result1 = "Result: Passed\t";
+   	    String Comment1 = "Comment: User Logged out Successfully\n\n";
+	    appendText(ModuleName1, Result1, Comment1);	
+	    
+	    
 	//Logout
 		
-//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
-//		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
+		Thread.sleep(2000);
 		
 		
    //Accredited Hospitals(Kolkata)
@@ -175,9 +181,8 @@ public class WebsiteTest {
 		Thread.sleep(2000);
      	driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[2]/div/div/div/label[3]/span/span")).click();   //Click on 24x7 Pharmacy
 		Thread.sleep(2000);	
-		
-		
-   //Print Top 5 Hospitals (Kolkata)
+				
+   //Print Top 5 Hospitals(Kolkata)
 		
      	System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 1st Hospital Name    
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[3]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 2nd Hospital Name
@@ -186,8 +191,7 @@ public class WebsiteTest {
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[6]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 5th Hospital Name
 		
 	
-		
-		
+				
 	//Search Cities(Hyderabad)
 		
 		driver.findElement(By.xpath("//*[@id='c-omni-container']/div/div[1]/div[1]/input")).clear();                    //Clear Location
@@ -224,7 +228,6 @@ public class WebsiteTest {
 		driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[1]/div/div/header/div[2]/div/div/div/label[3]/span/span")).click();   //Click on 24x7 Pharmacy
 		Thread.sleep(2000);	
 				
-				
    //Print Top 5 Hospitals (Hyderabad)
 				
      	System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[2]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 1st Hospital Name    
@@ -232,21 +235,24 @@ public class WebsiteTest {
 	    System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[4]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 3rd Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[5]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 4th Hospital Name
 		System.out.println(driver.findElement(By.xpath("//*[@id='container']/div[3]/div/div[2]/div[1]/div/div[3]/div[6]/div/div[1]/div[1]/div/div[2]/div/a/h2")).getText());    //Print 5th Hospital Name	
-	
-	//Logout
-		
-		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
-		Thread.sleep(2000);
-   
+
+
    //Print Append Text
 	    
-	    String ModuleName1 = "Module Name: Logout\t";
-	    String Result1 = "Result: Passed\t";
-   	    String Comment1 = "Comment: User Logged out Successfully\n\n";
+//	    String ModuleName1 = "Module Name: Logout\t";
+//	    String Result1 = "Result: Passed\t";
+//    	String Comment1 = "Comment: User Logged out Successfully\n\n";
 	    appendText(ModuleName1, Result1, Comment1);
 
+	    
+   //Logout
+		
+//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/span[1]")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//*[@id='container']/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[3]/span/div/div[10]/a")).click();         //Logout
+//		Thread.sleep(2000);
+   
+   
 		fail("Not yet implemented");
 	}
 
